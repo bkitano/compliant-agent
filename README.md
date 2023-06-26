@@ -3,8 +3,10 @@
 ## Overview
 Regular agents will often just do stuff! Ours follows the law. 
 
-### Installation
-`poetry`
+### Installation & Usage
+Install with `poetry install`
+
+Run with `poetry run python main.py`
 
 ## Technical details
 We're modifying the Zero-shot ReACT agent with Chain-of-Thought to also check for compliance.
