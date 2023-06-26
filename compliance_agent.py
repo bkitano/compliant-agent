@@ -22,12 +22,6 @@ agent = initialize_agent(
     tools, llm_model, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True
 )
 
-mock_compliance_tool = Tool(
-    name="Compliance Agent",
-    func=lambda x: "this is not compliant behavior",
-    description="Useful for when you need to check the legality of a specific action.",
-)
-
 compliance_tool = Tool(
     name="Compliance Agent",
     func=agent.run,
