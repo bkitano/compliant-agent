@@ -5,8 +5,9 @@ from langchain.chains import RetrievalQA
 from langchain.document_loaders import TextLoader
 from langchain.tools import Tool
 from commons import llm_model
+from pathlib import Path
 
-doc_path = "<todo: fetch the law text>"
+doc_path = Path(__file__).parent / "uk-bribery-act.txt"
 
 loader = TextLoader(doc_path)
 documents = loader.load()
