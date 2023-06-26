@@ -2,6 +2,7 @@ from langchain.agents import ConversationalAgent, AgentExecutor
 from langchain.memory import ConversationBufferMemory
 from commons import chat_model, llm_model
 from langchain.agents import Tool
+from retrieval_qa import regulations_tool
 
 """
 This is a custom conversational chat agent. We are going to
@@ -93,7 +94,7 @@ exit_tool = Tool(
 
 agent = ConversationalAgent.from_llm_and_tools(
     llm=llm_model,
-    tools=[mock_compliance_tool, mock_amazon_tool, exit_tool],
+    tools=[regulations_tool, mock_amazon_tool, exit_tool],
     prefix=PREFIX,
     format_instructions=FORMAT_INSTRUCTIONS,
     input_variables=["input", "agent_scratchpad", "chat_history"],
@@ -103,7 +104,7 @@ loaded_mem = ConversationBufferMemory(memory_key="chat_history")
 
 agent_executor = AgentExecutor.from_agent_and_tools(
     agent=agent,
-    tools=[mock_compliance_tool, mock_amazon_tool, exit_tool],
+    tools=[regulations_tool, mock_amazon_tool, exit_tool],
     memory=loaded_mem,
     verbose=True,
 )
