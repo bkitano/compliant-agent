@@ -21,7 +21,7 @@ Our agent:
 - Thought
 - Proposed Action
 - ***Compliance check***
-- Action or Finish
+- Action or Exit
 
 ### Knowledge Base
 We have a vector database for retrieving relevant regulations and case law.
@@ -34,9 +34,13 @@ v0
 1. Based on the case law, decide whether the action is legal or not. 
 1. If it is, do the action. If it's not, flag with the relevant case law.
 
-This agent is *not* conversational, it merely implements the Langchain Zero-shot ReACT pattern.
+This agent is *not* conversational, it merely implements the Langchain QADocumentRetrieval pattern.
 
 It's packaged as a tool, so that a tool-enabled conversational agent or another agent can invoke it via prompt, rather than having to modify the underlying agent orchestration.
 
 ### Example Chat Agent
 The Example Chat Agent is a conversational Zero-shot ReACT agent.
+
+## Future additions
+[] Composability
+[] Read-teaming
