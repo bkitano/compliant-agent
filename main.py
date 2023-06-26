@@ -8,8 +8,17 @@ if __name__ == "__main__":
 
     agent_executor.run(
         **{
-            "input": "I want to buy a bottle of soda for my friend Steve.",
-            "verbose": True,
-            "callbacks": [agent_executor_handler],
+            "input": "I want to buy a bottle of alcohol for my friend Steve.",
+            "callbacks": [
+                # agent_executor_handler
+                ],
+        }
+    )
+    agent_executor.run(
+        **{
+            "input": "I want to buy a bottle of soda instead.",
+            "callbacks": [
+                # agent_executor_handler
+                ],
         }
     )
