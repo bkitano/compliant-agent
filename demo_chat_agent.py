@@ -2,7 +2,7 @@ from langchain.agents import ConversationalAgent, AgentExecutor
 from langchain.memory import ConversationBufferMemory
 from commons import chat_model, llm_model
 from langchain.agents import Tool
-from retrieval_qa import regulations_tool
+from vectordb.retrieval_qa import regulations_tool
 
 """
 This is a custom conversational chat agent. We are going to
