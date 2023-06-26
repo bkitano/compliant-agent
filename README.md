@@ -3,6 +3,9 @@
 ## Overview
 Regular agents will often just do stuff! Ours follows the law. 
 
+### Installation
+`poetry`
+
 ## Technical details
 We're modifying the Zero-shot ReACT agent with Chain-of-Thought to also check for compliance.
 
@@ -29,5 +32,9 @@ v0
 1. Based on the case law, decide whether the action is legal or not. 
 1. If it is, do the action. If it's not, flag with the relevant case law.
 
-### Agent Orchestration
-Compliance agent is packaged as a tool, which the Zero-Shot ReACT agent calls during every execution.
+This agent is *not* conversational, it merely implements the Langchain Zero-shot ReACT pattern.
+
+It's packaged as a tool, so that a tool-enabled conversational agent or another agent can invoke it via prompt, rather than having to modify the underlying agent orchestration.
+
+### Example Chat Agent
+The Example Chat Agent is a conversational Zero-shot ReACT agent.
