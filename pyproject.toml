@@ -15,6 +15,7 @@ modal = "^0.49.2471"
 transformers = "^4.30.2"
 sentence-transformers = "^2.2.2"
 faiss-cpu = "^1.7.4"
+google-search-results = "^2.4.2"
 
 
 [build-system]
