@@ -1,6 +1,5 @@
-import os
-from demo_chat_agent import agent_executor
-from handler import AgentExecutorHandler
+from agents.demo_chat_agent import agent_executor
+from agents.handler import AgentExecutorHandler
 
 ## if main:
 if __name__ == "__main__":
