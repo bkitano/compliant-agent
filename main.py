@@ -1,4 +1,3 @@
-from demo_chat_agent import agent_executor
 import os
 
 ## if main:
