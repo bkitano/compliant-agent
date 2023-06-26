@@ -1,9 +1,7 @@
 from langchain.agents import initialize_agent, Tool
-from langchain.agents import AgentType, MRKLChain
-from langchain.tools import BaseTool
-from langchain.llms import OpenAI
-from langchain import LLMMathChain, SerpAPIWrapper
-from law_faiss_db import llm, regulations_tool
+from langchain.agents import AgentType
+from law_faiss_db import regulations_tool
+from commons import llm_model
 
 tools = [regulations_tool]
 
@@ -21,7 +19,7 @@ tools = [regulations_tool]
 # Construct the agent. We will use the default agent type here.
 # See documentation for a full list of options.
 agent = initialize_agent(
-    tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True
+    tools, llm_model, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True
 )
 
 compliance_tool = Tool(
