@@ -8,6 +8,7 @@ from langchain.document_loaders import TextLoader
 from langchain.tools import Tool
 from commons import llm_model
 from pathlib import Path
+import os
 
 doc_path = Path(__file__).parent / "docs/uk-bribery-act.txt"
 
@@ -16,9 +17,8 @@ documents = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 texts = text_splitter.split_documents(documents)
 
-#embeddings = OpenAIEmbeddings()
-embeddings = HuggingFaceEmbeddings(model_name='gtr-t5-large')
-docsearch = FAISS.from_documents(texts, embeddings)#, collection_name="regulations")
+embeddings = OpenAIEmbeddings()
+docsearch = Chroma.from_documents(texts, embeddings, collection_name="regulations")
 
 docsearch.save_local("vectorstores/uk-bribery-act-vs")
 #vectorstore = FAISS.load_local("data/CFR_vectorstore", embeddings)

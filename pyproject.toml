@@ -10,6 +10,9 @@ packages = [{include = "compliant_agent"}]
 python = "^3.11"
 langchain = "^0.0.215"
 anthropic = "^0.2.10"
+openai = "^0.27.8"
+modal = "^0.49.2471"
+transformers = "^4.30.2"
 
 
 [build-system]
