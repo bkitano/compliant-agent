@@ -3,6 +3,11 @@
 ## Overview
 Regular agents will often just do stuff! Ours follows the law. 
 
+## Run the demo
+```
+poetry shell && ./demo.sh
+```
+
 ### Installation & Usage
 Install with `poetry install`
 
