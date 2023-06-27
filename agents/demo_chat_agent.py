@@ -95,7 +95,7 @@ exit_tool = Tool(
 
 agent = ConversationalAgent.from_llm_and_tools(
     llm=llm_model,
-    tools=[regulations_tool, mock_amazon_tool, exit_tool],
+    tools=[mock_amazon_tool],
     prefix=PREFIX,
     format_instructions=FORMAT_INSTRUCTIONS,
     input_variables=["input", "agent_scratchpad", "chat_history"],
@@ -105,7 +105,7 @@ loaded_mem = ConversationBufferMemory(memory_key="chat_history")
 
 agent_executor = CompliantAgentExecutor.from_agent_and_tools(
     agent=agent,
-    tools=[regulations_tool, mock_amazon_tool, exit_tool],
+    tools=[mock_amazon_tool],
     memory=loaded_mem,
     verbose=True,
 )

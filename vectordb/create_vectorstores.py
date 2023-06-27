@@ -8,7 +8,9 @@ from langchain.document_loaders import TextLoader
 from pathlib import Path
 import os
 
-docs = ["us-fcpa.txt", "ice-cream.txt"]
+docs = ["us-fcpa.txt"]
+# for demo:
+# docs = ["us-fcpa.txt", "ice-cream.txt"]
 doc_paths = [Path(__file__).parent.parent / f"docs/{doc}" for doc in docs]
 
 # loader = TextLoader(doc_path)
