@@ -49,3 +49,12 @@ if __name__ == "__main__":
             ],
         }
     )
+    # working
+    agent_executor.run(
+        **{
+            "input": """I work for a subsidiary of Oracle Corporation in Turkey. I would like to use company funds to pay for foreign officials’ families to accompany them on international conferences or take side trips to California.""",
+            "callbacks": [
+                # agent_executor_handler
+            ],
+        }
+    )
