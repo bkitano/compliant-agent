@@ -2,19 +2,20 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.vectorstores import Chroma
 from langchain.vectorstores import FAISS
-from langchain.text_splitter import CharacterTextSplitter, RecursiveCharacterTextSplitter
+from langchain.text_splitter import (
+    CharacterTextSplitter,
+    RecursiveCharacterTextSplitter,
+)
 from langchain.chains import RetrievalQA
 from langchain.document_loaders import TextLoader
 from pathlib import Path
 import os
 
-docs = ["us-fcpa.txt"]
+docs = os.listdir(Path(__file__).parent.parent / "docs")
 # for demo:
 # docs = ["us-fcpa.txt", "ice-cream.txt"]
 doc_paths = [Path(__file__).parent.parent / f"docs/{doc}" for doc in docs]
 
-# loader = TextLoader(doc_path)
-# documents = loader.load()
 documents = [TextLoader(doc_path).load()[0] for doc_path in doc_paths]
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 texts = text_splitter.split_documents(documents)

@@ -34,7 +34,7 @@ if __name__ == "__main__":
     # working
     agent_executor.run(
         **{
-            "input": """I would like to buy cupcakes for my friend's birthday party.""",
+            "input": """I would like to buy ice cream for my friend's birthday party.""",
             "callbacks": [
                 # agent_executor_handler
             ],
