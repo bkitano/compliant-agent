@@ -1,5 +1,6 @@
 from langchain.agents import ConversationalAgent, AgentExecutor
 from langchain.memory import ConversationBufferMemory
+from agents.CompliantAgentExecutor import CompliantAgentExecutor
 from commons import chat_model, llm_model
 from langchain.agents import Tool
 from vectordb.retrieval_qa import regulations_tool
@@ -102,7 +103,7 @@ agent = ConversationalAgent.from_llm_and_tools(
 )
 loaded_mem = ConversationBufferMemory(memory_key="chat_history")
 
-agent_executor = AgentExecutor.from_agent_and_tools(
+agent_executor = CompliantAgentExecutor.from_agent_and_tools(
     agent=agent,
     tools=[regulations_tool, mock_amazon_tool, exit_tool],
     memory=loaded_mem,
