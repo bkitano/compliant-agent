@@ -66,7 +66,7 @@ class CompliantAgentExecutor(AgentExecutor):
                     {
                         "output": compliance_response.get("response").get("reason"),
                     },
-                    str(compliance_response),
+                    "Compliance status is FALSE. Exiting...",
                 )
 
             # Call the LLM to see what to do.
