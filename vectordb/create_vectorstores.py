@@ -8,14 +8,17 @@ from langchain.document_loaders import TextLoader
 from pathlib import Path
 import os
 
-doc_path = Path(__file__).parent / "docs/us-fcpa.txt"
+docs = ["us-fcpa.txt", "ice-cream.txt"]
+doc_paths = [Path(__file__).parent.parent / f"docs/{doc}" for doc in docs]
 
-loader = TextLoader(doc_path)
-documents = loader.load()
+# loader = TextLoader(doc_path)
+# documents = loader.load()
+documents = [TextLoader(doc_path).load()[0] for doc_path in doc_paths]
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
 texts = text_splitter.split_documents(documents)
+print(texts)
 
-embeddings = HuggingFaceEmbeddings(model_name='gtr-t5-large')
+embeddings = HuggingFaceEmbeddings(model_name="gtr-t5-large")
 docsearch = FAISS.from_documents(texts, embeddings)
 
 docsearch.save_local("vectorstores/us-fcpa-vectorstore")
